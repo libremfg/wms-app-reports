@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "InfluxFunctions",
+    "pageId": "Stock on hand",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tformatInfluxResponse: () => {\n\t\tconst objArr = [];\n\t\tconst tables = GetStockOnHand.data.split(\"\\r\\n\\r\\n\");\n\t\tfor(let t=1;t<tables.length;t++){\n\t\t\tconst csvRows = tables[t].split(\"\\r\\n\");\n\t\t\tconst headers = csvRows[0].split(',');\n\t\t\tfor(let i = 1; i < csvRows.length; i++) {\n            const rowObj = {};\n            objArr.push(rowObj);\n            const rowArr = csvRows[i].split(',');\n            rowArr.forEach((val, index) => {\n\t\t\t\t\t\t\tif (headers[index]!=\"\" && headers[index]!=\"result\" && headers[index]!=\"table\"){\n                rowObj[headers[index]] = val;\n\t\t\t\t\t\t\t}\n            });\n      }\n\t\t}\n\t\treturn objArr;\n\t}\n}\n",
+    "variables": []
+  },
+  "id": "Stock on hand_InfluxFunctions",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_6215ecb62882606a1df5c900"
+}
