@@ -8,7 +8,7 @@
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 998,
+          "rightColumn": 698,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
@@ -19,7 +19,7 @@
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
-          "version": 51,
+          "version": 52,
           "minHeight": 820,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
@@ -28,6 +28,11 @@
             {
               "widgetName": "selectSite",
               "isFilterable": true,
+              "dynamicPropertyPathList": [
+                {
+                  "key": "onOptionChange"
+                }
+              ],
               "displayName": "Select",
               "iconSVG": "/static/media/icon.bd99caba.svg",
               "labelText": "Site",
@@ -63,11 +68,16 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{GetSiteWarehouses.run(() => resetWidget(\"selectWarehouse\"), () => {})}}"
+              "onOptionChange": "{{\nHandleSelects.siteChange(selectSite.selectedOptionValue)}}"
             },
             {
               "widgetName": "selectWarehouse",
               "isFilterable": true,
+              "dynamicPropertyPathList": [
+                {
+                  "key": "onOptionChange"
+                }
+              ],
               "displayName": "Select",
               "iconSVG": "/static/media/icon.bd99caba.svg",
               "labelText": "Warehouse",
@@ -103,7 +113,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{GetMaterials.run()}}"
+              "onOptionChange": "{{\nHandleSelects.warehouseChange(selectWarehouse.selectedOptionValue)}}"
             },
             {
               "widgetName": "selectMaterial",
@@ -152,15 +162,6 @@
                 "JSON.stringify({\n    variables: {\n\t\t\tid:selectWarehouse.selectedOptionValue\n\t\t},\n    query: `\nquery($id:ID!){\n  queryMaterialDefinition @cascade{\n    value:id\n    label:code\n    name\n    description\n    inventoryHandlingPolicy{\n      rules{\n        warehouse(filter:{id:[$id]}){\n          id\n        }\n      }\n    }\n  }\n}\n    `\n})"
               ],
               "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Stock on hand_GetUserSites",
-              "name": "GetUserSites",
-              "pluginType": "API",
-              "jsonPathKeys": [
-                "JSON.stringify({\n    variables: {\n\t\t\tname:appsmith.user.email\n\t\t},\n    query: `\nquery($name:String!){\n  getUser(username:$name){\n    name\n\t\tid\n    hasRole@cascade{\n      role{\n        name\n        hasGrantedRights(filter:{name:{eq:isAdmin}}){\n          name\n        }\n      }\n      responsibilities(filter:{equipmentLevel:{eq:Site}}){\n        value:id\n        label:name\n      }\n    }\n  }\n}\n    `\n})"
-              ],
-              "timeoutInMillisecond": 10000
             }
           ],
           [
@@ -170,6 +171,17 @@
               "pluginType": "API",
               "jsonPathKeys": [
                 "JSON.stringify({\n    variables: {\n\t\t\tid:selectSite.selectedOptionValue\n\t\t},\n    query: `\nquery($id:ID!){\n\tgetEquipment(id:$id){\n\t\tid\n\t\tname\n\t\tchildren(filter:{equipmentLevel:{eq:Warehouse},not:{isActive:false}}){\n\t\t\tvalue:id\n\t\t\tlabel:name\n\t\t}\n\t}\n}\n    `\n})"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Stock on hand_GetUserSites",
+              "name": "GetUserSites",
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "JSON.stringify({\n    variables: {\n\t\t\tname:appsmith.user.email\n\t\t},\n    query: `\nquery($name:String!){\n  getUser(username:$name){\n    name\n\t\tid\n    hasRole@cascade{\n      role{\n        name\n        hasGrantedRights(filter:{name:{eq:isAdmin}}){\n          name\n        }\n      }\n      responsibilities(filter:{equipmentLevel:{eq:Site}}){\n        value:id\n        label:name\n      }\n    }\n  }\n}\n    `\n})"
               ],
               "timeoutInMillisecond": 10000
             }

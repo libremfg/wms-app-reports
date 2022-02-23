@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "HandleSelects",
+    "pageId": "Stock on hand",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tsiteChange: (siteId) => {\n\t\tif(!_.isEmpty(siteId)){\n\t\t\tGetSiteWarehouses.run()\n\t\t}\n\t},\n\twarehouseChange: (warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t}\n\t},\n\tmaterialChange: (materialId) => {\n\t\tif(!_.isEmpty(materialId)){\n\t\t\t\n\t\t}\n\t},\n}",
+    "variables": []
+  },
+  "id": "Stock on hand_HandleSelects",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_6215e89f2882606a1df5c80f"
+}
