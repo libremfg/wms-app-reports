@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "Stock Report",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tFormData: () => {\n\t\tvar result = [];\n\n\t\tfor (let i = 0; i < appsmith.store.StockOnHandListValue.length; i++){\n\t\t\tlet storagelocation = \"\"\n\t\t\tif (appsmith.store.StockOnHandListValue[i].storageLocation != null){\n\t\t\t\tstoragelocation = appsmith.store.StockOnHandListValue[i].storageLocation.name\n\t\t\t}\n\t\t\tlet materialCode = \"\"\n\t\t\tif (appsmith.store.StockOnHandListValue[i].material != null){\n\t\t\t\tmaterialCode = appsmith.store.StockOnHandListValue[i].material.code\n\t\t\t}\n\t\t\tlet materialSublot = \"\"\n\t\t\tif (appsmith.store.StockOnHandListValue[i].materialSubLot != null){\n\t\t\t\tmaterialSublot = appsmith.store.StockOnHandListValue[i].materialSubLot.code\n\t\t\t}\n\t\t\tlet shipmentId = \"\"\n\t\t\tif (appsmith.store.StockOnHandListValue[i].shipment != null){\n\t\t\t\tshipmentId = appsmith.store.StockOnHandListValue[i].shipment.id\n\t\t\t}\n\t\t\tlet line = {\n\t\t\t\t\"materialCode\":materialCode,\n\t\t\t\t\"effectiveTimeStamp\":appsmith.store.StockOnHandListValue[i].effectiveTimestamp,\n\t\t\t\t\"quantity\":appsmith.store.StockOnHandListValue[i].quantity,\n\t\t\t\t\"materialSubLot\":materialSublot,\n\t\t\t\t\"storageLocation\":storagelocation,\n\t\t\t\t\"shipment\":shipmentId,\n\t\t\t\t\"reason\":appsmith.store.StockOnHandListValue[i].reason\n\t\t\t}\n\t\t\tresult.push(line)\n\t\t}\n\t\treturn result\n\t},\n}",
+    "variables": []
+  },
+  "id": "Stock Report_JSObject1",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_620c94a46b4b1e154a3c356c"
+}

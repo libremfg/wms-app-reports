@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "Disable_Lists",
+    "pageId": "Stock Report",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tDisable2: () => {\n\t\tstoreValue(\"List1Selected\",true);\n\t\t\n\t},\n}",
+    "variables": []
+  },
+  "id": "Stock Report_Disable_Lists",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_620dd4fc6b4b1e154a3c4cda"
+}

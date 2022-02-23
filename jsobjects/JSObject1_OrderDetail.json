@@ -1,0 +1,24 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "OrderDetail",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tformTerminalData: () => {\n\t\t//write code here\n\t\tlet result = []\n\t\tfor (let i = 0; i<getTerminalDetails.data.data.getShipment.packedItems.length;i++){\n\t\t  let line = {\n\t\t\t\t\"Qty\":getTerminalDetails.data.data.getShipment.packedItems[i].Qty,\n\t\t\t\t\"material\":getTerminalDetails.data.data.getShipment.packedItems[i].material.code,\n\t\t\t}\n\t\t\tresult.push(line)\n\t\t}\n\t\treturn result\n\t},\n\tmyFun2: async () => {\n\t\t//do async stuff here or use JS promises\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": []
+      },
+      {
+        "name": "myVar2",
+        "value": {}
+      }
+    ]
+  },
+  "id": "OrderDetail_JSObject1",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_620f37ce6b4b1e154a3f00cc"
+}

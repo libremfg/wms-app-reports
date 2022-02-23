@@ -1,0 +1,349 @@
+{
+  "unpublishedPage": {
+    "name": "Unit History",
+    "slug": "unit-history",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1370,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1290,
+          "containerStyle": "none",
+          "snapRows": 125,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 52,
+          "minHeight": 1292,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0,
+          "children": [
+            {
+              "widgetName": "inpSerialNumber",
+              "displayName": "Input",
+              "iconSVG": "/static/media/icon.9f505595.svg",
+              "topRow": 0,
+              "bottomRow": 4,
+              "parentRowSpace": 10,
+              "autoFocus": false,
+              "type": "INPUT_WIDGET",
+              "hideCard": false,
+              "parentColumnSpace": 21.21875,
+              "dynamicTriggerPathList": [],
+              "resetOnSubmit": true,
+              "leftColumn": 0,
+              "dynamicBindingPathList": [],
+              "labelStyle": "",
+              "inputType": "TEXT",
+              "isDisabled": false,
+              "key": "jml6ch9u1v",
+              "isRequired": true,
+              "rightColumn": 33,
+              "widgetId": "mm2ogq8ib5",
+              "isVisible": true,
+              "label": "Serial Number",
+              "allowCurrencyChange": false,
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "iconAlign": "left",
+              "defaultText": ""
+            },
+            {
+              "widgetName": "Button1",
+              "onClick": "{{GetUnitHistory.run()}}",
+              "buttonColor": "#03B365",
+              "displayName": "Button",
+              "iconSVG": "/static/media/icon.cca02633.svg",
+              "topRow": 0,
+              "bottomRow": 4,
+              "parentRowSpace": 10,
+              "type": "BUTTON_WIDGET",
+              "hideCard": false,
+              "parentColumnSpace": 21.21875,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onClick"
+                }
+              ],
+              "leftColumn": 34,
+              "dynamicBindingPathList": [],
+              "text": "Submit",
+              "isDisabled": false,
+              "key": "suin2zuiff",
+              "rightColumn": 46,
+              "isDefaultClickDisabled": true,
+              "widgetId": "d06nvnd5z7",
+              "isVisible": true,
+              "version": 1,
+              "recaptchaType": "V3",
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "buttonVariant": "PRIMARY"
+            },
+            {
+              "widgetName": "Table1",
+              "defaultPageSize": 0,
+              "columnOrder": [
+                "timestamp",
+                "effectiveTimestamp",
+                "materialUse",
+                "status",
+                "shipmentItem",
+                "carrier",
+                "material",
+                "quantity"
+              ],
+              "isVisibleDownload": true,
+              "dynamicPropertyPathList": [],
+              "displayName": "Table",
+              "iconSVG": "/static/media/icon.db8a9cbd.svg",
+              "topRow": 5,
+              "bottomRow": 124,
+              "isSortable": true,
+              "parentRowSpace": 10,
+              "type": "TABLE_WIDGET",
+              "defaultSelectedRow": "0",
+              "hideCard": false,
+              "parentColumnSpace": 21.21875,
+              "dynamicTriggerPathList": [],
+              "dynamicBindingPathList": [
+                {
+                  "key": "primaryColumns.status.computedValue"
+                },
+                {
+                  "key": "tableData"
+                },
+                {
+                  "key": "primaryColumns.timestamp.computedValue"
+                },
+                {
+                  "key": "primaryColumns.effectiveTimestamp.computedValue"
+                },
+                {
+                  "key": "primaryColumns.materialUse.computedValue"
+                },
+                {
+                  "key": "primaryColumns.shipmentItem.computedValue"
+                },
+                {
+                  "key": "primaryColumns.carrier.computedValue"
+                },
+                {
+                  "key": "primaryColumns.material.computedValue"
+                },
+                {
+                  "key": "primaryColumns.quantity.computedValue"
+                }
+              ],
+              "leftColumn": 0,
+              "primaryColumns": {
+                "status": {
+                  "index": 2,
+                  "width": 150,
+                  "id": "status",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "status",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.status))}}"
+                },
+                "timestamp": {
+                  "index": 0,
+                  "width": 150,
+                  "id": "timestamp",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "timestamp",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.timestamp))}}"
+                },
+                "effectiveTimestamp": {
+                  "index": 1,
+                  "width": 150,
+                  "id": "effectiveTimestamp",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": false,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "effectiveTimestamp",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.effectiveTimestamp))}}"
+                },
+                "materialUse": {
+                  "index": 2,
+                  "width": 150,
+                  "id": "materialUse",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "materialUse",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.materialUse))}}"
+                },
+                "shipmentItem": {
+                  "index": 4,
+                  "width": 150,
+                  "id": "shipmentItem",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "shipmentItem",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.shipmentItem))}}"
+                },
+                "carrier": {
+                  "index": 5,
+                  "width": 150,
+                  "id": "carrier",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "carrier",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.carrier))}}"
+                },
+                "material": {
+                  "index": 6,
+                  "width": 150,
+                  "id": "material",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "material",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.material))}}"
+                },
+                "quantity": {
+                  "index": 7,
+                  "width": 150,
+                  "id": "quantity",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "quantity",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.quantity))}}"
+                }
+              },
+              "delimiter": ",",
+              "key": "pukahl6xd8",
+              "derivedColumns": {},
+              "rightColumn": 63,
+              "textSize": "PARAGRAPH",
+              "widgetId": "vdvcehyjre",
+              "isVisibleFilters": true,
+              "tableData": "{{GetUnitHistory.data.data.getInventoryTransactionsRaw}}",
+              "isVisible": true,
+              "label": "Data",
+              "searchKey": "",
+              "version": 3,
+              "totalRecordsCount": 0,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "horizontalAlignment": "LEFT",
+              "isVisibleSearch": true,
+              "isVisiblePagination": true,
+              "verticalAlignment": "CENTER",
+              "columnSizeMap": {
+                "task": 245,
+                "step": 62,
+                "status": 75,
+                "material": 465.99999999999994,
+                "timestamp": 276
+              }
+            }
+          ]
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Unit History_GetUnitHistory",
+              "name": "GetUnitHistory",
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "JSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{reference}}\n    carrier{code}\n    material{code}\n    quantity\n  }\n}\n    `\n})"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "widgetNames": [
+          "Button1",
+          "MainContainer",
+          "Table1",
+          "inpSerialNumber"
+        ],
+        "validOnPageLoadActions": true,
+        "id": "Unit History",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "policies": [],
+  "gitSyncId": "61ada28ad3e4214454c245d4_61c433cee89bc475f3cbbdf8"
+}

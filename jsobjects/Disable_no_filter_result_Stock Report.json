@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "Disable_no_filter_result",
+    "pageId": "Stock Report",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyFun1: () => {\n\t\tif (GetStockReportWithNoFilter.data.data.getStockOnHand.length < 1){\n\t\t\treturn true\n\t\t}else{\n\t\t\treturn false\n\t\t}\n\t},\n}",
+    "variables": []
+  },
+  "id": "Stock Report_Disable_no_filter_result",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_620dd2766b4b1e154a3c4cb5"
+}
