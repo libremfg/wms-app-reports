@@ -306,7 +306,8 @@
               "columnSizeMap": {
                 "task": 245,
                 "step": 62,
-                "status": 75
+                "status": 75,
+                "material_code": 276
               }
             }
           ]
