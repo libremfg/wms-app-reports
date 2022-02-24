@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "(warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t}\n\t}",
+      "body": "(warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t\tGetWarehouseBins.run()\n\t\t}\n\t}",
       "jsArguments": [
         {
           "name": "warehouseId"
@@ -37,7 +37,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t}\n\t}"
+      "(warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t\tGetWarehouseBins.run()\n\t\t}\n\t}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

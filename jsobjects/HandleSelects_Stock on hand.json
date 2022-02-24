@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tsiteChange: (siteId) => {\n\t\tif(!_.isEmpty(siteId)){\n\t\t\tGetSiteWarehouses.run()\n\t\t}\n\t},\n\twarehouseChange: (warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t}\n\t},\n\tmaterialChange: (materialId) => {\n\t\tif(!_.isEmpty(materialId)){\n\t\t\t\n\t\t}\n\t},\n}",
+    "body": "export default {\n\tsiteChange: (siteId) => {\n\t\tif(!_.isEmpty(siteId)){\n\t\t\tGetSiteWarehouses.run()\n\t\t}\n\t},\n\twarehouseChange: (warehouseId) => {\n\t\tif(!_.isEmpty(warehouseId)){\n\t\t\tGetMaterials.run()\n\t\t\tGetWarehouseBins.run()\n\t\t}\n\t},\n\tmaterialChange: (materialId) => {\n\t\tif(!_.isEmpty(materialId)){\n\t\t\t\n\t\t}\n\t},\n}",
     "variables": []
   },
   "id": "Stock on hand_HandleSelects",
