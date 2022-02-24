@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n\t\treturn `bucket = \"LibreInventoryTransactions\" start = 2000-01-01T00:00:00Z stop = 2022-02-24T12:15:11+11:00 bins = [\"MEL/ADYLIVE/A010\",\"MEL/ADYLIVE/A011\"] from(bucket: bucket) |> range(start: start, stop: stop) |> filter(fn: (r) => r[\"_measurement\"] == \"inventoryTransaction\") |> filter( fn: (r) => exists r[\"storageLocation.name\"]) |> filter(fn: (r) => contains(value: r[\"storageLocation.name\"] ,set: bins)) |> pivot(rowKey:[\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") |> keep(columns: [\"material.code\", \"status.code\", \"carrier.id\", \"storageLocation.name\", \"quantity\"]) |> group(columns: [\"material.code\", \"status.code\", \"carrier.id\", \"storageLocation.name\"], mode:\"by\") |> sum(column: \"quantity\")\n\t`\n\t}",
+      "body": "() => {\n\t\treturn [\"MEL/ADYLIVE/A010\",\"MEL/ADYLIVE/A011\"]\n\t\n\t}",
       "jsArguments": [],
       "isAsync": false
     },
@@ -33,7 +33,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n\t\treturn `bucket = \"LibreInventoryTransactions\" start = 2000-01-01T00:00:00Z stop = 2022-02-24T12:15:11+11:00 bins = [\"MEL/ADYLIVE/A010\",\"MEL/ADYLIVE/A011\"] from(bucket: bucket) |> range(start: start, stop: stop) |> filter(fn: (r) => r[\"_measurement\"] == \"inventoryTransaction\") |> filter( fn: (r) => exists r[\"storageLocation.name\"]) |> filter(fn: (r) => contains(value: r[\"storageLocation.name\"] ,set: bins)) |> pivot(rowKey:[\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") |> keep(columns: [\"material.code\", \"status.code\", \"carrier.id\", \"storageLocation.name\", \"quantity\"]) |> group(columns: [\"material.code\", \"status.code\", \"carrier.id\", \"storageLocation.name\"], mode:\"by\") |> sum(column: \"quantity\")\n\t`\n\t}"
+      "() => {\n\t\treturn [\"MEL/ADYLIVE/A010\",\"MEL/ADYLIVE/A011\"]\n\t\n\t}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

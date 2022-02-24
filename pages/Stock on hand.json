@@ -8,7 +8,7 @@
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 846,
+          "rightColumn": 1039,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
@@ -307,21 +307,13 @@
                 "task": 245,
                 "step": 62,
                 "status": 75,
-                "material_code": 276
+                "material_code": 276,
+                "storageLocation_name": 193
               }
             }
           ]
         },
         "layoutOnLoadActions": [
-          [
-            {
-              "id": "Stock on hand_GetStockOnHand",
-              "name": "GetStockOnHand",
-              "pluginType": "API",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
           [
             {
               "id": "Stock on hand_GetMaterials",
@@ -345,6 +337,15 @@
             }
           ],
           [
+            {
+              "id": "Stock on hand_GetStockOnHand",
+              "name": "GetStockOnHand",
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "QueryBuilder.test()"
+              ],
+              "timeoutInMillisecond": 10000
+            },
             {
               "id": "Stock on hand_GetUserSites",
               "name": "GetUserSites",
