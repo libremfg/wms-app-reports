@@ -132,7 +132,7 @@
               "type": "SELECT_WIDGET",
               "serverSideFiltering": false,
               "hideCard": false,
-              "defaultOptionValue": "{}",
+              "defaultOptionValue": "",
               "animateLoading": true,
               "parentColumnSpace": 17.03125,
               "dynamicTriggerPathList": [
@@ -164,11 +164,11 @@
               "widgetName": "Table1",
               "defaultPageSize": 0,
               "columnOrder": [
-                "material",
-                "carrier",
-                "status",
+                "Material",
+                "Carrier",
+                "Status",
                 "storageLocation",
-                "quantity"
+                "Quantity"
               ],
               "isVisibleDownload": true,
               "dynamicPropertyPathList": [],
@@ -189,91 +189,23 @@
                   "key": "tableData"
                 },
                 {
-                  "key": "primaryColumns.quantity.computedValue"
-                },
-                {
-                  "key": "primaryColumns.material.computedValue"
-                },
-                {
-                  "key": "primaryColumns.carrier.computedValue"
-                },
-                {
-                  "key": "primaryColumns.status.computedValue"
-                },
-                {
                   "key": "primaryColumns.storageLocation.computedValue"
+                },
+                {
+                  "key": "primaryColumns.Material.computedValue"
+                },
+                {
+                  "key": "primaryColumns.Carrier.computedValue"
+                },
+                {
+                  "key": "primaryColumns.Status.computedValue"
+                },
+                {
+                  "key": "primaryColumns.Quantity.computedValue"
                 }
               ],
               "leftColumn": 0,
               "primaryColumns": {
-                "quantity": {
-                  "index": 4,
-                  "width": 150,
-                  "id": "quantity",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "quantity",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.quantity))}}"
-                },
-                "material": {
-                  "index": 0,
-                  "width": 150,
-                  "id": "material",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "material",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.material))}}"
-                },
-                "carrier": {
-                  "index": 1,
-                  "width": 150,
-                  "id": "carrier",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "carrier",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.carrier))}}"
-                },
-                "status": {
-                  "index": 2,
-                  "width": 150,
-                  "id": "status",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "status",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.status))}}"
-                },
                 "storageLocation": {
                   "index": 3,
                   "width": 150,
@@ -290,6 +222,74 @@
                   "isDerived": false,
                   "label": "storageLocation",
                   "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.storageLocation))}}"
+                },
+                "Material": {
+                  "index": 0,
+                  "width": 150,
+                  "id": "Material",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Material",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.Material))}}"
+                },
+                "Carrier": {
+                  "index": 1,
+                  "width": 150,
+                  "id": "Carrier",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Carrier",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.Carrier))}}"
+                },
+                "Status": {
+                  "index": 2,
+                  "width": 150,
+                  "id": "Status",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Status",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.Status))}}"
+                },
+                "Quantity": {
+                  "index": 4,
+                  "width": 150,
+                  "id": "Quantity",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Quantity",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.Quantity))}}"
                 }
               },
               "delimiter": ",",
@@ -299,7 +299,7 @@
               "textSize": "PARAGRAPH",
               "widgetId": "3i9f7djmdj",
               "isVisibleFilters": true,
-              "tableData": "{{appsmith.store.GetStockOnHandOutput}}",
+              "tableData": "{{GetStockOnHandDataFormat.myFun1()}}",
               "isVisible": true,
               "label": "Data",
               "searchKey": "",

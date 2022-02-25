@@ -1,0 +1,24 @@
+{
+  "unpublishedCollection": {
+    "name": "GetStockOnHandDataFormat",
+    "pageId": "Stock on hand",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tmyFun1: () => {\n\t\tvar ret = []\n\t\tfor (let i = 0; i < appsmith.store.GetStockOnHandOutput.length; i++){\n\t\t\tvar materialCode = \"\"\n\t\t\tif (appsmith.store.GetStockOnHandOutput[i].material != null){\n\t\t\t\tmaterialCode = appsmith.store.GetStockOnHandOutput[i].material.code\n\t\t\t}\n\t\t\tvar carrier = \"\"\n\t\t\tif (appsmith.store.GetStockOnHandOutput[i].carrier != null){\n\t\t\t\tcarrier = appsmith.store.GetStockOnHandOutput[i].carrier.id\n\t\t\t}\n\t\t\tvar status = \"\"\n\t\t\tif (appsmith.store.GetStockOnHandOutput[i].status != null){\n\t\t\t\tstatus = appsmith.store.GetStockOnHandOutput[i].status.code\n\t\t\t}\n\t\t\tvar storageLocation = \"\"\n\t\t\tif (appsmith.store.GetStockOnHandOutput[i].storageLocation != null){\n\t\t\t\tstorageLocation = appsmith.store.GetStockOnHandOutput[i].storageLocation.name\n\t\t\t}\n\t\t\tlet line = {\n\t\t\t\t\"Material\":materialCode,\n\t\t\t\t\"Carrier\":carrier,\n\t\t\t\t\"Status\":status,\n\t\t\t\t\"storageLocation\":storageLocation,\n\t\t\t\t\"Quantity\":appsmith.store.GetStockOnHandOutput[i].quantity\n\t\t\t}\n\t\t\tret.push(line)\n\t\t}\n\t\treturn ret\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": []
+      },
+      {
+        "name": "myVar2",
+        "value": {}
+      }
+    ]
+  },
+  "id": "Stock on hand_GetStockOnHandDataFormat",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_62182a85445a8d746a05e6fc"
+}
