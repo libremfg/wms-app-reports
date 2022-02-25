@@ -1,0 +1,24 @@
+{
+  "unpublishedCollection": {
+    "name": "GetStockOnHandQuery",
+    "pageId": "Stock on hand",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tmyFun1: () => {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run()\n\t\t\tstoreValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand)\n\t\t}else{\n\t\t\tGetStockOnHandGraphqlByMateria.run()\n\t\t\tstoreValue('GetStockOnHandOutput',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)\n\t\t}\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": []
+      },
+      {
+        "name": "myVar2",
+        "value": {}
+      }
+    ]
+  },
+  "id": "Stock on hand_GetStockOnHandQuery",
+  "deleted": false,
+  "gitSyncId": "61ada28ad3e4214454c245d4_621836b4445a8d746a05e77b"
+}
