@@ -8,7 +8,7 @@
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 1039,
+          "rightColumn": 2816,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
@@ -113,11 +113,16 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{\nHandleSelects.warehouseChange(selectWarehouse.selectedOptionValue)}}"
+              "onOptionChange": "{{\nHandleSelects.warehouseChange(selectWarehouse.selectedOptionValue);GetStockOnHandGraphqlByWarehou.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand), () => {})}}"
             },
             {
               "widgetName": "selectMaterial",
               "isFilterable": true,
+              "dynamicPropertyPathList": [
+                {
+                  "key": "onOptionChange"
+                }
+              ],
               "displayName": "Select",
               "iconSVG": "/static/media/icon.bd99caba.svg",
               "labelText": "Material",
@@ -130,7 +135,11 @@
               "defaultOptionValue": "{}",
               "animateLoading": true,
               "parentColumnSpace": 17.03125,
-              "dynamicTriggerPathList": [],
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onOptionChange"
+                }
+              ],
               "leftColumn": 42,
               "dynamicBindingPathList": [
                 {
@@ -148,16 +157,17 @@
               "version": 1,
               "parentId": "0",
               "renderMode": "CANVAS",
-              "isLoading": false
+              "isLoading": false,
+              "onOptionChange": "{{GetStockOnHandGraphqlByMateria.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand), () => {})}}"
             },
             {
               "widgetName": "Table1",
               "defaultPageSize": 0,
               "columnOrder": [
-                "material_code",
-                "status_code",
-                "storageLocation_name",
-                "carrier_id",
+                "material",
+                "carrier",
+                "status",
+                "storageLocation",
                 "quantity"
               ],
               "isVisibleDownload": true,
@@ -179,91 +189,23 @@
                   "key": "tableData"
                 },
                 {
-                  "key": "primaryColumns.material_code.computedValue"
-                },
-                {
-                  "key": "primaryColumns.status_code.computedValue"
-                },
-                {
-                  "key": "primaryColumns.storageLocation_name.computedValue"
-                },
-                {
-                  "key": "primaryColumns.carrier_id.computedValue"
-                },
-                {
                   "key": "primaryColumns.quantity.computedValue"
+                },
+                {
+                  "key": "primaryColumns.material.computedValue"
+                },
+                {
+                  "key": "primaryColumns.carrier.computedValue"
+                },
+                {
+                  "key": "primaryColumns.status.computedValue"
+                },
+                {
+                  "key": "primaryColumns.storageLocation.computedValue"
                 }
               ],
               "leftColumn": 0,
               "primaryColumns": {
-                "material_code": {
-                  "index": 0,
-                  "width": 150,
-                  "id": "material_code",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "material_code",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.material_code))}}"
-                },
-                "status_code": {
-                  "index": 1,
-                  "width": 150,
-                  "id": "status_code",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "status_code",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.status_code))}}"
-                },
-                "storageLocation_name": {
-                  "index": 2,
-                  "width": 150,
-                  "id": "storageLocation_name",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "storageLocation_name",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.storageLocation_name))}}"
-                },
-                "carrier_id": {
-                  "index": 3,
-                  "width": 150,
-                  "id": "carrier_id",
-                  "horizontalAlignment": "LEFT",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textSize": "PARAGRAPH",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "carrier_id",
-                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.carrier_id))}}"
-                },
                 "quantity": {
                   "index": 4,
                   "width": 150,
@@ -280,6 +222,74 @@
                   "isDerived": false,
                   "label": "quantity",
                   "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.quantity))}}"
+                },
+                "material": {
+                  "index": 0,
+                  "width": 150,
+                  "id": "material",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "material",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.material))}}"
+                },
+                "carrier": {
+                  "index": 1,
+                  "width": 150,
+                  "id": "carrier",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "carrier",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.carrier))}}"
+                },
+                "status": {
+                  "index": 2,
+                  "width": 150,
+                  "id": "status",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "status",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.status))}}"
+                },
+                "storageLocation": {
+                  "index": 3,
+                  "width": 150,
+                  "id": "storageLocation",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "PARAGRAPH",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "storageLocation",
+                  "computedValue": "{{Table1.sanitizedTableData.map((currentRow) => ( currentRow.storageLocation))}}"
                 }
               },
               "delimiter": ",",
@@ -289,7 +299,7 @@
               "textSize": "PARAGRAPH",
               "widgetId": "3i9f7djmdj",
               "isVisibleFilters": true,
-              "tableData": "{{InfluxFunctions.formatInfluxResponse()}}",
+              "tableData": "{{appsmith.store.GetStockOnHandOutput}}",
               "isVisible": true,
               "label": "Data",
               "searchKey": "",
@@ -306,9 +316,10 @@
               "columnSizeMap": {
                 "task": 245,
                 "step": 62,
-                "status": 75,
+                "status": 260,
                 "material_code": 276,
-                "storageLocation_name": 193
+                "storageLocation_name": 193,
+                "material": 289
               }
             }
           ]
@@ -337,15 +348,6 @@
             }
           ],
           [
-            {
-              "id": "Stock on hand_GetStockOnHand",
-              "name": "GetStockOnHand",
-              "pluginType": "API",
-              "jsonPathKeys": [
-                "QueryBuilder.test()"
-              ],
-              "timeoutInMillisecond": 10000
-            },
             {
               "id": "Stock on hand_GetUserSites",
               "name": "GetUserSites",
