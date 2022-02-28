@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async ()=> {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run(()=>storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand))\n\t\t}else{\n\t\t\tstoreValue(\"materialCode\",selectMaterial.selectedOptionLabel).then(GetStockOnHandGraphqlByMateria.run(() => storeValue('\"GetStockOnHandOutput\"',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)))\n\t\t}\n\t}",
+      "body": "async ()=> {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run(()=>storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand))\n\t\t}else{\n\t\t\tstoreValue(\"materialCode\",selectMaterial.selectedOptionLabel).then(GetStockOnHandGraphqlByMateria.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)))\n\t\t}\n\t}",
       "jsArguments": [],
       "isAsync": true
     },
@@ -33,7 +33,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async ()=> {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run(()=>storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand))\n\t\t}else{\n\t\t\tstoreValue(\"materialCode\",selectMaterial.selectedOptionLabel).then(GetStockOnHandGraphqlByMateria.run(() => storeValue('\"GetStockOnHandOutput\"',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)))\n\t\t}\n\t}"
+      "async ()=> {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run(()=>storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand))\n\t\t}else{\n\t\t\tstoreValue(\"materialCode\",selectMaterial.selectedOptionLabel).then(GetStockOnHandGraphqlByMateria.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)))\n\t\t}\n\t}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

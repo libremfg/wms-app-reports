@@ -158,7 +158,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{GetStockOnHandQuery.myFun1();GetStockOnHandDataFormat.myFun1()}}"
+              "onOptionChange": "{{GetStockOnHandQuery.myFun1()}}"
             },
             {
               "widgetName": "Table1",
