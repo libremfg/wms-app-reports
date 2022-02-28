@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tmyFun1: () => {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run()\t\n\t\t\t\tstoreValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand)\n\t\t}else{\n\t\t\tGetStockOnHandGraphqlByMateria.run()\n\t\t\t\tstoreValue('GetStockOnHandOutput',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)\n\t\t}\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t}\n}",
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tmyFun1: async ()=> {\n\t\tif (selectMaterial.selectedOptionLabel == \"\"){\n\t\t\tGetStockOnHandGraphqlByWarehou.run()\n\t\t\tstoreValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand)\n\t\t}else{\n\t\t\tstoreValue(\"materialCode\",selectMaterial.selectedOptionLabel).then(GetStockOnHandGraphqlByMateria.run(() => storeValue('\"GetStockOnHandOutput\"',GetStockOnHandGraphqlByMateria.data.data.getStockOnHand)))\n\t\t}\n\t\treturn appsmith.store.materialCode\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t}\n}",
     "variables": [
       {
         "name": "myVar1",

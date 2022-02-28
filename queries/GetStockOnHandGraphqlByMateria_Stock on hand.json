@@ -24,7 +24,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\nJSON.stringify({\n    variables: {\n\t\t\t\"input\":{\n\t\t\t\t\"warehouse\":[{\"name\":selectWarehouse.selectedOptionLabel}],\n\t\t\t\t\"material\":[{\"code\":selectMaterial.selectedOptionLabel}],\n\t\t\t\t\"groupBy\":{\n      \"material\":true,\n      \"carrier\":true,\n      \"status\":true,\n      \"storageLocation\":true\n    }\n\t\t\t}\n\t\t},\n    query: `\nquery ($input:StockOnHandFilter){\n  getStockOnHand(filter:$input){\n    material{\n      code\n    }\n    carrier{\n      id\n\t\t\t\tcode\n    }\n    status{\n      code\n    }\n    storageLocation{\n      name\n    }\n    quantity\n  }\n}\n    `\n})\n}}",
+      "body": "{{\nJSON.stringify({\n    variables: {\n\t\t\t\"input\":{\n\t\t\t\t\"warehouse\":[{\"name\":selectWarehouse.selectedOptionLabel}],\n\t\t\t\t\"material\":[{\"code\":appsmith.store.materialCode}],\n\t\t\t\t\"groupBy\":{\n      \"material\":true,\n      \"carrier\":true,\n      \"status\":true,\n      \"storageLocation\":true\n    }\n\t\t\t}\n\t\t},\n    query: `\nquery ($input:StockOnHandFilter){\n  getStockOnHand(filter:$input){\n    material{\n      code\n    }\n    carrier{\n      id\n\t\t\t\tcode\n    }\n    status{\n      code\n    }\n    storageLocation{\n      name\n    }\n    quantity\n  }\n}\n    `\n})\n}}",
       "httpMethod": "POST",
       "pluginSpecifiedTemplates": [
         {
@@ -45,7 +45,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "JSON.stringify({\n    variables: {\n\t\t\t\"input\":{\n\t\t\t\t\"warehouse\":[{\"name\":selectWarehouse.selectedOptionLabel}],\n\t\t\t\t\"material\":[{\"code\":selectMaterial.selectedOptionLabel}],\n\t\t\t\t\"groupBy\":{\n      \"material\":true,\n      \"carrier\":true,\n      \"status\":true,\n      \"storageLocation\":true\n    }\n\t\t\t}\n\t\t},\n    query: `\nquery ($input:StockOnHandFilter){\n  getStockOnHand(filter:$input){\n    material{\n      code\n    }\n    carrier{\n      id\n\t\t\t\tcode\n    }\n    status{\n      code\n    }\n    storageLocation{\n      name\n    }\n    quantity\n  }\n}\n    `\n})"
+      "JSON.stringify({\n    variables: {\n\t\t\t\"input\":{\n\t\t\t\t\"warehouse\":[{\"name\":selectWarehouse.selectedOptionLabel}],\n\t\t\t\t\"material\":[{\"code\":appsmith.store.materialCode}],\n\t\t\t\t\"groupBy\":{\n      \"material\":true,\n      \"carrier\":true,\n      \"status\":true,\n      \"storageLocation\":true\n    }\n\t\t\t}\n\t\t},\n    query: `\nquery ($input:StockOnHandFilter){\n  getStockOnHand(filter:$input){\n    material{\n      code\n    }\n    carrier{\n      id\n\t\t\t\tcode\n    }\n    status{\n      code\n    }\n    storageLocation{\n      name\n    }\n    quantity\n  }\n}\n    `\n})"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
