@@ -68,7 +68,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{\nHandleSelects.siteChange(selectSite.selectedOptionValue)}}"
+              "onOptionChange": "{{\nHandleSelects.siteChange(selectSite.selectedOptionValue);resetWidget(\"selectMaterial\");resetWidget(\"selectWarehouse\")}}"
             },
             {
               "widgetName": "selectWarehouse",
@@ -113,7 +113,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onOptionChange": "{{\nHandleSelects.warehouseChange(selectWarehouse.selectedOptionValue);GetStockOnHandGraphqlByWarehou.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand), () => {})}}"
+              "onOptionChange": "{{\nHandleSelects.warehouseChange(selectWarehouse.selectedOptionValue);GetStockOnHandGraphqlByWarehou.run(() => storeValue('GetStockOnHandOutput',GetStockOnHandGraphqlByWarehou.data.data.getStockOnHand), () => {});resetWidget(\"selectMaterial\")}}"
             },
             {
               "widgetName": "selectMaterial",
