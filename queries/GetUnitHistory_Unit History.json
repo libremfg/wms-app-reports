@@ -25,7 +25,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\nJSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{reference}}\n    carrier{code}\n    material{code}\n    quantity\n  }\n}\n    `\n})\n}}",
+      "body": "{{\nJSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{id,reference}}\n    carrier{id,code}\n    material{code}\n    quantity\n  }\n}\n    `\n})\n}}",
       "httpMethod": "POST",
       "pluginSpecifiedTemplates": [
         {
@@ -34,12 +34,16 @@
       ]
     },
     "executeOnLoad": true,
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "JSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{reference}}\n    carrier{code}\n    material{code}\n    quantity\n  }\n}\n    `\n})"
+      "JSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{id,reference}}\n    carrier{id,code}\n    material{code}\n    quantity\n  }\n}\n    `\n})"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

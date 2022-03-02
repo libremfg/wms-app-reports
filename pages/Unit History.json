@@ -313,26 +313,14 @@
             }
           ]
         },
-        "layoutOnLoadActions": [
-          [
-            {
-              "id": "Unit History_GetUnitHistory",
-              "name": "GetUnitHistory",
-              "pluginType": "API",
-              "jsonPathKeys": [
-                "JSON.stringify({\n    variables: {\n\t\t\tfilter:{\n\t\t\t\tmaterialSubLot:{code:inpSerialNumber.text}\n\t\t\t}\n\t\t},\n    query: `\nquery GetUnitHistory($filter:InventoryTransactionsRawFilter!){\n  getInventoryTransactionsRaw(filter:$filter){\n    timestamp\n    effectiveTimestamp\n    materialUse\n    status{code}\n    shipmentItem{shipment{reference}}\n    carrier{code}\n    material{code}\n    quantity\n  }\n}\n    `\n})"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ]
-        ],
+        "layoutOnLoadActions": [],
         "widgetNames": [
           "Button1",
           "MainContainer",
           "Table1",
           "inpSerialNumber"
         ],
-        "validOnPageLoadActions": true,
+        "validOnPageLoadActions": false,
         "id": "Unit History",
         "deleted": false,
         "policies": [],
